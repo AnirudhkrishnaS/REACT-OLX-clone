@@ -15,8 +15,10 @@ function Header() {
   return (
     <div className="headerParentDiv">
       <div className="headerChildDiv">
-        <div className="brandName">
-          <OlxLogo></OlxLogo>
+        <div onClick={()=>{
+          history.push('/')
+        }} className="brandName">
+          <OlxLogo ></OlxLogo>
         </div>
         <div className="placeSearch">
           <Search></Search>
@@ -39,12 +41,10 @@ function Header() {
           <Arrow></Arrow>
         </div>
         <div className="loginPage">
-          <span class= "logout">{user ? user.displayName : 'Login'}</span>
-          
+          <span onClick={()=>{
+            !user ?history.push('/login') : history.push('/')
+          }} class= "logout">{user ? user.displayName : 'Login'}</span>
           <hr />
-
-          
-
         </div>
 
         {user && <span  class = 'logout' onClick={()=>{
@@ -60,7 +60,9 @@ function Header() {
           <SellButton></SellButton>
           <div className="sellMenuContent">
             <SellButtonPlus></SellButtonPlus>
-            <span>SELL</span>
+            <span onClick={()=>{
+              history.push('/create')
+            }}>SELL</span>
           </div>
         </div>
       </div>
